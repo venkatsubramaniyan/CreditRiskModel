@@ -28,7 +28,8 @@ class PredictResponse(BaseModel):
     predicted_class: int
 
 # ---------- Load the trained pipeline ----------
-MODEL_PATH =r"C:\Users\AX256WN\OneDrive - EY\Desktop\LoanPredictorApp\artifacts\model_data.joblib"
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "artifacts", "model_data.joblib")
+MODEL_PATH = os.path.abspath(MODEL_PATH)
 
 if not os.path.exists(MODEL_PATH):
     raise RuntimeError(f"Model file not found at: {MODEL_PATH}")
